@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +10,7 @@ namespace Outcome_2
     {
         
         // Global Variables
-            string[] Array1;
+            string[] Array1; 
             string winner;
 
 
@@ -18,14 +18,15 @@ namespace Outcome_2
         static void Main(string[] args) 
 
         {
-           
+
             readIn();
+            
             
           
                
         }
             
-       public static void readIn()
+       public static string readIn()
          {
     //Local Variables
             String data = "";
@@ -34,28 +35,25 @@ namespace Outcome_2
             try
             {
                 StreamReader reader = new StreamReader(@"\\GCASTUDENTFS.glasgowclyde.ac.uk\homedrives$\20178947\Work\Outcome 2 Assesment\Data.csv");
-             data = reader.ReadToEnd();
-            Char[] punctuation = new char[] { };
-            String[] Array1 = data.Split(punctuation);
+                data = reader.ReadToEnd();
+                
 
-            reader.Close();
-            reader.Dispose();
-            Console.WriteLine(Array1);
-            Console.Read();
             }
-           catch (FileNotFoundException)
+            catch (FileNotFoundException)
             {
                 Console.WriteLine("File has not been found. Please try again.");
                 Console.Read();
             }
 
-            
+            return data;
 
            
           }
-      
-        public static string findhighmark(String[] Array1)
+        public static void findhighmark(String [] Array1, String [] str)
        {
+           String[] Array2;
+            char[] punctuation = new char[] { ' ', ',', '.' };
+           Array2 = str.Split
 
            String currentwinner;
            currentwinner = Array1[0];
@@ -65,7 +63,7 @@ namespace Outcome_2
                Console.WriteLine(Array1[i]);
            }
            Console.Read();
-           return "0";
+          
           
        }
         
@@ -77,4 +75,5 @@ namespace Outcome_2
 
         }    
     }
+
 
