@@ -10,7 +10,7 @@ namespace Outcome_2
     {
         
         // Global Variables
-            String[] Array1; 
+            String[] Array1;
             string winner;
 
 
