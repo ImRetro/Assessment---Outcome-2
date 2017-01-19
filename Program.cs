@@ -11,12 +11,14 @@ namespace Outcome_2
 
         // Global Variables
         public static string[] Array1;
+        public static string[] firstname;
+        public static string[] secondname;
+        public static int[] score;
         public static string winner;
 
 
         //Execute other functions
         static void Main(string[] args)
-
         {
 
             readIn();
@@ -38,7 +40,7 @@ namespace Outcome_2
             {
                 StreamReader reader = new StreamReader(@"\\GCASTUDENTFS.glasgowclyde.ac.uk\homedrives$\20178947\Work\Outcome 2 Assesment\Data.csv");
                 Data = reader.ReadToEnd();
-
+                Console.WriteLine("Found File");
 
             }
             catch (FileNotFoundException)
@@ -47,47 +49,58 @@ namespace Outcome_2
                 Console.Read();
             }
 
-           
 
-            Array1 =  new[] { Data };
+            Char [] Punctuation = new char[] { '\n', ',' };
+            Array1 = Data.Split(Punctuation);
 
-            return Data; 
+            for (int i = 2; i < Array1.Length; i+=3)
+            {
+                
+
+            }
+
+
+                return Data;
 
 
         }
         public static void findhighmark()
         {
-            
-            char[] punctuation = new char[] { ' ', ',', '.' };
-            for (int i = 0; i<Array1.Length;i ++)
-            {
-               Array1 = Array1[i].Split(punctuation);
-            }
-            
-            winner = Array1[0];
 
-            for (int i = 0; i < Array1.Length; i += 3)
+
+
+
+
+
+            winner = Array1[2];
+
+
+            for (int i = 2; i < Array1.Length; i +=3)
             {
+
                 Console.WriteLine(Array1[i]);
+                string value = int.Parse(Console.ReadLine());
+
+                if (value > winner)
+                {
+
+                }
+                
+                    
             }
+           
             Console.Read();
 
 
         }
-        public static string displayresults();
+        public  static void displayresults()
         {
+            StreamWriter writer = new StreamWriter(@"U:\Work\Outcome 2 Assesment\Results.txt");
+            writer.WriteLine(winner);
 
 
 
 
         }
-
-
-
-
-
-
-
-
     }
 }
