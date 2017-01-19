@@ -8,35 +8,37 @@ namespace Outcome_2
 {
     class Program
     {
-        
+
         // Global Variables
-            string[] Array1; 
-            string winner;
+        public static string[] Array1;
+        public static string winner;
 
 
         //Execute other functions
-        static void Main(string[] args) 
+        static void Main(string[] args)
 
         {
 
             readIn();
-            
-            
-          
-               
-        }
-            
-       public static string readIn()
-         {
-    //Local Variables
-            String data = "";
+            findhighmark();
+            displayresults();
 
- // identifys the location of the file , and reads in the file
+
+
+
+        }
+
+        public static string readIn()
+        {
+            //Local Variables
+            String Data = "";
+
+            // identifys the location of the file , and reads in the file
             try
             {
                 StreamReader reader = new StreamReader(@"\\GCASTUDENTFS.glasgowclyde.ac.uk\homedrives$\20178947\Work\Outcome 2 Assesment\Data.csv");
-                data = reader.ReadToEnd();
-                
+                Data = reader.ReadToEnd();
+
 
             }
             catch (FileNotFoundException)
@@ -45,35 +47,47 @@ namespace Outcome_2
                 Console.Read();
             }
 
-            return data;
-
            
-          }
-        public static void findhighmark(String [] Array1, String [] str)
-       {
-           String[] Array2;
+
+            Array1 =  new[] { Data };
+
+            return Data; 
+
+
+        }
+        public static void findhighmark()
+        {
+            
             char[] punctuation = new char[] { ' ', ',', '.' };
-           Array2 = str.Split
+            for (int i = 0; i<Array1.Length;i ++)
+            {
+               Array1 = Array1[i].Split(punctuation);
+            }
+            
+            winner = Array1[0];
 
-           String currentwinner;
-           currentwinner = Array1[0];
-
-           for (int i = 0 ; i < Array1.Length ; i+= 3)
-           {
-               Console.WriteLine(Array1[i]);
-           }
-           Console.Read();
-          
-          
-       }
-        
-    
-     
-        
+            for (int i = 0; i < Array1.Length; i += 3)
+            {
+                Console.WriteLine(Array1[i]);
+            }
+            Console.Read();
 
 
+        }
+        public static string displayresults();
+        {
 
-        }    
+
+
+
+        }
+
+
+
+
+
+
+
+
     }
-
-
+}
