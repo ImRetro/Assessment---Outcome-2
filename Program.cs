@@ -55,7 +55,9 @@ namespace Outcome_2
 
             for (int i = 2; i < Array1.Length; i+=3)
             {
-                
+                Console.WriteLine(Array1[i]);
+                score = int.Parse(Console.ReadLine());
+
 
             }
 
@@ -79,9 +81,9 @@ namespace Outcome_2
             {
 
                 Console.WriteLine(Array1[i]);
-                string value = int.Parse(Console.ReadLine());
+             
 
-                if (value > winner)
+               
                 {
 
                 }
@@ -104,3 +106,6 @@ namespace Outcome_2
         }
     }
 }
+
+    
+
